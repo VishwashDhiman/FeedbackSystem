@@ -1,0 +1,43 @@
+<section class="login">
+  <form fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #loginForm='ngForm' (ngSubmit)="submit(loginForm)" >
+    
+    <mat-form-field>
+      <input matInput
+       type="text" 
+       ngModel 
+       name="email" 
+       [(ngModel)]="id"
+       required
+       #mail="ngModel" >
+       <mat-placeholder> <mat-icon>perm_identity</mat-icon>  <b>Your ID</b>  </mat-placeholder>
+      <mat-error *ngIf="mail.hasError('required')">Email must not be empty</mat-error>
+      <mat-error *ngIf="!mail.hasError('required')">Enter valid Email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  
+       type="password" 
+       name="password"
+       ngModel
+       #password="ngModel"
+       minlength="7"
+       [(ngModel)]="pass"
+       required
+       [type]="hide ? 'password' : 'text'" >
+       <mat-placeholder> <mat-icon>lock_outline</mat-icon>  <b>Password</b>  </mat-placeholder>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error>Enter valid Password</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+    <mat-select [(value)]= "selected" name="selectBox" required>
+      <mat-option value="Student">Student</mat-option>
+      <mat-option value="Teacher">Teacher</mat-option>
+      <mat-option value="Admin">Admin</mat-option>
+    </mat-select>
+    <mat-placeholder><mat-icon>accessibility</mat-icon> <b> Select Role </b> </mat-placeholder>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid" >Submit</button>
+  </form>
+</section>
