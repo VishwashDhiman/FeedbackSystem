@@ -30,9 +30,7 @@ export class LoginComponent implements OnInit {
             .subscribe(response => {
               let status = response.status;
               console.log(response);
-              let title = response.body;
-              console.log(title);
-              if(title)
+              if(response.body != null)
                this.router.navigate(['/student'], { fragment: 'top' });
               else 
               alert("Enter valid id and password");
