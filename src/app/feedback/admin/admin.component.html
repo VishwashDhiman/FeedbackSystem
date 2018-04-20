@@ -1,128 +1,183 @@
 <mat-card>
   <mat-card-content>
-    <h2 class="example-h2">Tabs with text labels</h2>
-    <mat-tab-group class="demo-tab-group">
-      <mat-tab label="Faculty">
-        <div class="demo-tab-content"> 
+    <mat-tab-group class="tab-group">
+      <mat-tab label="Add Students">
+        <div class="tab-content">
+          <form class="form" #StudentForm='ngForm' (ngSubmit)="studentForm(StudentForm)">
 
-          <form class="example-form" #StudentForm='ngForm' (ngSubmit)="submit(StudentForm)">
-
-            <mat-form-field class="example-full-width">
-              <input matInput
-               type="text" 
-               ngModel 
-               name="username" 
-               [(ngModel)]="FullName"
-               required
-               #name="ngModel" >
-               <mat-placeholder> <mat-icon>perm_identity</mat-icon>  <b>Student Name</b>  </mat-placeholder>
+            <mat-form-field class="full-width">
+              <input matInput type="text" ngModel name="username" required #name="ngModel">
+              <mat-placeholder>
+                <mat-icon>perm_identity</mat-icon>
+                <b>Student Name</b>
+              </mat-placeholder>
               <mat-error *ngIf="name.hasError('required')">Name must not be empty</mat-error>
             </mat-form-field>
 
-            <mat-form-field  class="example-full-width" hintLabel="Max 10 characters">
-                  <input matInput #input1="ngModel"
-                  #input
-                  name="ids" 
-                  maxlength="10"
-                  minlength="10"
-                  [(ngModel)] ="id"
-                  ngModel
-                  required>
-                  <mat-placeholder> <mat-icon>lock_outline</mat-icon>  <b>Enter Id</b>  </mat-placeholder>
-                  <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-                  <mat-error *ngIf="input1.errors?.minlength">Id is too short</mat-error>
-                  <!-- <mat-error *ngIf="name.hasError('required')">Id must not be empty</mat-error> -->
+            <mat-form-field class="full-width" hintLabel="Max 10 characters">
+              <input matInput #input1="ngModel" #input name="id" maxlength="10" minlength="10" ngModel required>
+              <mat-placeholder>
+                <mat-icon>lock_outline</mat-icon>
+                <b>Enter Id</b>
+              </mat-placeholder>
+              <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+              <mat-error *ngIf="input1.errors?.minlength">Id is too short</mat-error>
+              <!-- <mat-error *ngIf="name.hasError('required')">Id must not be empty</mat-error> -->
             </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input matInput  
-                 type="password" 
-                 name="password"
-                 ngModel
-                 #password="ngModel"
-                 minlength="7"
-                 [(ngModel)]="pass"
-                 required
-                 [type]="hide ? 'password' : 'text'" >
-                 <mat-placeholder> <mat-icon>lock_outline</mat-icon>  <b>Password</b>  </mat-placeholder>
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                <mat-error>Enter valid Password</mat-error>
-              </mat-form-field>
- 
-              <mat-form-field class="example-full-width">
-                  <mat-select placeholder="Skills" [formControl]="course" multiple>
-                    <mat-select-trigger>
-                      {{course.value ? course.value[0] : ''}}
-                      <span *ngIf="course.value?.length > 1" class="example-additional-selection">
-                        (+{{course.value.length - 1}} others)
-                      </span>
-                    </mat-select-trigger>
-                    <mat-option *ngFor="let topping of courseList" [value]="cours">{{topping}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <button type="submit" mat-raised-button color="primary" [disabled]="facultyForm.invalid" >Submit</button>
+            <mat-form-field class="full-width">
+              <input matInput type="text" name="password" ngModel #password="ngModel" minlength="7" required>
+              <mat-placeholder>
+                <mat-icon>lock_outline</mat-icon>
+                <b>Password</b>
+              </mat-placeholder>
+              <mat-error>Enter valid Password</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Select Class" #select="ngModel" name="select" ngModel required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let class1 of availableClass" [value]="class1">
+                  {{class1}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="select.hasError('required')">Please choose any class</mat-error>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" [disabled]="StudentForm.invalid">Submit</button>
 
           </form>
         </div>
       </mat-tab>
-      <mat-tab label="Students">
-          <div class="demo-tab-content"> 
+      <mat-tab label="Add Faculty">
+        <div class="tab-content">
 
-              <form class="example-form" #facultyForm='ngForm' (ngSubmit)="submit(facultyForm)">
-    
-                <mat-form-field class="example-full-width">
-                  <input matInput
-                   type="text" 
-                   ngModel 
-                   name="username" 
-                   [(ngModel)]="FullName"
-                   required
-                   #name="ngModel" >
-                   <mat-placeholder> <mat-icon>perm_identity</mat-icon>  <b>Faculty Name</b>  </mat-placeholder>
-                  <mat-error *ngIf="name.hasError('required')">Name must not be empty</mat-error>
-                </mat-form-field>
-    
-                <mat-form-field  class="example-full-width" hintLabel="Max 10 characters">
-                      <input matInput #input1="ngModel"
-                      #input
-                      name="ids" 
-                      maxlength="10"
-                      minlength="10"
-                      [(ngModel)] ="id"
-                      ngModel
-                      required>
-                      <mat-placeholder> <mat-icon>lock_outline</mat-icon>  <b>Enter Id</b>  </mat-placeholder>
-                      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-                      <mat-error *ngIf="input1.errors?.minlength">Id is too short</mat-error>
-                      <!-- <mat-error *ngIf="name.hasError('required')">Id must not be empty</mat-error> -->
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                    <input matInput  
-                     type="password" 
-                     name="password"
-                     ngModel
-                     #password="ngModel"
-                     minlength="7"
-                     [(ngModel)]="pass"
-                     required
-                     [type]="hide ? 'password' : 'text'" >
-                     <mat-placeholder> <mat-icon>lock_outline</mat-icon>  <b>Password</b>  </mat-placeholder>
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                    <mat-error>Enter valid Password</mat-error>
-                  </mat-form-field>
-                  <mat-form-field>
-                      <mat-select placeholder="Favorite animal" [formControl]="animalControl" required>
-                        <mat-option>--</mat-option>
-                        <mat-option *ngFor="let animal of animals" [value]="animal">
-                          {{animal.name}}
-                        </mat-option>
-                      </mat-select>
-                      <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
-                      <mat-hint>{{animalControl.value?.sound}}</mat-hint>
-                    </mat-form-field>
-                    <button type="submit" mat-raised-button color="primary" [disabled]="facultyForm.invalid" >Submit</button>
-          </form>          
-        </div>  
+          <form class="form" #facultyForm='ngForm' (ngSubmit)="facultyData(facultyForm)">
+
+            <mat-form-field class="full-width">
+              <input matInput type="text" ngModel name="username" required #name="ngModel">
+              <mat-placeholder>
+                <mat-icon>perm_identity</mat-icon>
+                <b>Faculty Name</b>
+              </mat-placeholder>
+              <mat-error *ngIf="name.hasError('required')">Name must not be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" hintLabel="Max 10 characters">
+              <input matInput #input1="ngModel" #input name="id" maxlength="10" minlength="10" ngModel required>
+              <mat-placeholder>
+                <mat-icon>lock_outline</mat-icon>
+                <b>Enter Id</b>
+              </mat-placeholder>
+              <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+              <mat-error *ngIf="input1.errors?.minlength">Id is too short</mat-error>
+              <!-- <mat-error *ngIf="name.hasError('required')">Id must not be empty</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <input matInput type="text" name="password" ngModel #password="ngModel" minlength="7" required>
+              <mat-placeholder>
+                <mat-icon>lock_outline</mat-icon>
+                <b>Password</b>
+              </mat-placeholder>
+              <mat-error>Enter valid Password</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Skills" #select="ngModel" ngModel name="selected" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let skill of courseList" [value]="skill">{{skill}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="select.hasError('required')">Please choose any skill</mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" [disabled]="facultyForm.invalid">Submit</button>
+          </form>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Show Students">
+        <button (click)="showStudent()" mat-raised-button color="primary">Show List</button>
+        <div class="example-container mat-elevation-z8">
+          <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+
+          <mat-table #table [dataSource]="dataSource">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="password">
+              <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.password}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="class">
+              <mat-header-cell *matHeaderCellDef> Class </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        </div>
+
+      </mat-tab>
+      <mat-tab label="Show Faculty">
+
+        <button (click)="showFaculty()" mat-raised-button color="primary">Show List</button>
+
+        <div class="example-container mat-elevation-z8">
+          <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilterForFaculty($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+
+          <mat-table #table1 [dataSource]="facultySource">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="password">
+              <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.password}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="skill">
+              <mat-header-cell *matHeaderCellDef> Class </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.skill}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumnsForTeacher"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumnsForTeacher;"></mat-row>
+          </mat-table>
+        </div>
+
+
       </mat-tab>
     </mat-tab-group>
   </mat-card-content>

@@ -1,50 +1,40 @@
-.demo-tab-group {
+.tab-group {
   border: 1px solid #e8e8e8;
 }
 
-.demo-tab-content {
+.tab-content {
   padding: 16px;
 }
 
 
-.example-form {
+.form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
 }
 
-.example-full-width {
+.full-width {
   width: 100%;
 }
+
 
 .example-container {
   display: flex;
   flex-direction: column;
+  min-width: 300px;
 }
 
-.example-container > * {
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
   width: 100%;
 }
 
-
-input.example-right-align::-webkit-outer-spin-button,
-input.example-right-align::-webkit-inner-spin-button {
-  display: none;
-}
-
-input.example-right-align {
-  -moz-appearance: textfield;
-}
-.example-right-align {
-  text-align: right;
-}
-.example-section {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  height: 60px;
-}
-.example-additional-selection {
-  opacity: 0.75;
-  font-size: 0.75em;
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
 }
