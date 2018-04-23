@@ -14,7 +14,9 @@ import {
   MatTabsModule,
   MatCardModule,
   MatCheckboxModule,
-  MatTableModule
+  MatTableModule,
+  MatStepperModule,
+  MatRadioModule
 } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 
@@ -34,7 +36,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatTabsModule,
     MatCardModule,
     MatCheckboxModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatRadioModule
   ],
   exports: [
     MatSidenavModule,
@@ -51,7 +55,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatTabsModule,
     MatCardModule,
     MatCheckboxModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatRadioModule
     ],
   declarations: []
 })

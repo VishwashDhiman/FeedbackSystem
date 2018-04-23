@@ -1,0 +1,14 @@
+{
+  "name": "feedbacksystem",
+  "version": "1.0.0",
+  "description": "This would help the institutes to provide the student's feedback about the programs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
