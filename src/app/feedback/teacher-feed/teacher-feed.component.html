@@ -15,10 +15,10 @@
 <div fxLayoutAlign="center">
   <h2>Reviews</h2>
 </div>
-<mat-list>
-  <mat-list-item>Review 1</mat-list-item>
+<mat-list *ngFor="let data of reviewForTeacher">
+  <mat-list-item>{{data}}</mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item>Review 2</mat-list-item>
+  <!-- <mat-list-item>Review 2</mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item>Review 3</mat-list-item>
+  <mat-list-item>Review 3</mat-list-item> -->
 </mat-list>

@@ -11,8 +11,6 @@ router.post('/student', function (req, res, next) {
   let password = req.body.password;
   console.log(req.body);
   student.findOne({ 'id': id, 'password': password }).then(function (studentdata) {
-
-    var id = studentdata.class;
     res.send(studentdata);
   }).catch(next);
 });
@@ -74,14 +72,20 @@ router.get('/getRatting', function (req, res) {
 
 router.post('/update', function (req, res, next) {
   
-  console.log(req.body);
+  console.log(req.body.review);
   let name = req.body.name;
 
-    teacher.update({'name' : name}, {$set: {'rating': req.body.rating}}).then(function (studentdata) {
+    teacher.update({'name' : name}, {$set: {'rating': req.body.rating, 'reviews' : req.body.review}}).then(function (studentdata) {
       console.log(studentdata);
       res.send(studentdata);
     }).catch(next);
   });
-  
+
+  router.get('/searchTeachersName', function (req, res) {
+    let name=req.query.name; 
+    teacher.find({name}).then(function (data) { 
+      res.send(JSON.stringify(data));
+    });
+  });
 
 module.exports = router;

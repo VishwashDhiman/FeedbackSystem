@@ -11,6 +11,7 @@ export class AuthService {
   }
   private class;
   private teacher;
+  private name;
   public checkAdmin(id: any, pass: any) {
     if (id == this.admin.id && pass == this.admin.password) {
       return true;
@@ -37,5 +38,15 @@ export class AuthService {
   public getTeacher()
   {
     return this.teacher;
+  }
+
+  public setName(n)
+  {
+    this.name = n;
+  }
+
+  public getName()
+  {
+    return this.name;
   }
 }

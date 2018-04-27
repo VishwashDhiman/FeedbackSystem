@@ -13,6 +13,7 @@ import { UIService } from '../../shared/ui.service';
 export class LoginComponent implements OnInit {
   hide = true;
   class;
+  name;
   constructor(
     private auser: AuthService,
     private router: Router,
@@ -64,7 +65,7 @@ export class LoginComponent implements OnInit {
         this.uiser.showSnackbar(error.message, 'ok',5000);
       });
     }
-    else if(user == 'Faculty')
+    else if(user == 'Teacher')
     {
       this.http.post('http://localhost:3000/api/faculty', data, { observe: 'response' })
       .subscribe(response => {
@@ -74,10 +75,13 @@ export class LoginComponent implements OnInit {
          }
         else
         {
-
-          this.router.navigate(['/faculty']);
+          console.log(response);
+          this.name = response.body;
+          let d = this.name.name;
+          console.log(d);
+          this.auser.setName(d);
+          this.router.navigate(['/teacher']);
         }
-        console.log(response);
       }, error => {
         this.uiser.showSnackbar(error.message, 'ok',5000);
       });

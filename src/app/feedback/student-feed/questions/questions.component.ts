@@ -12,7 +12,7 @@ import { UIService } from '../../../shared/ui.service';
 export class QuestionsComponent implements OnInit {
   public teacherName;
   isLinear = true;
-  public review ="Hello there";
+  public review;
   public ratting: any;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -24,6 +24,7 @@ export class QuestionsComponent implements OnInit {
   eighthFormGroup: FormGroup;
   ninthFormGroup: FormGroup;
   tenthFormGroup: FormGroup;
+  eleventhFormGroup: FormGroup;
   points = "";
   one = 0;
   two = 0;
@@ -66,6 +67,9 @@ export class QuestionsComponent implements OnInit {
     });
     this.tenthFormGroup = this.formBuilder.group({
       tenthCtrl: ['', Validators.required]
+    });
+    this.eleventhFormGroup = this.formBuilder.group({
+      eleventhCtrl: ['', Validators.required]
     });
 
     this.http.get('http://localhost:3000/api/getRatting/?name='+this.teacherName)
@@ -112,9 +116,8 @@ export class QuestionsComponent implements OnInit {
         this.five++;
       }
     }
+    this.review += this.eleventhFormGroup.value.eleventhCtrl+"$";
 
-    console.log(this.ratting);
-    console.log("response "+this.ratting[0].rating.oneStar);
     let data = {'rating' : {
       'oneStar' : this.one,
       'twoStar' : this.two,
@@ -127,14 +130,9 @@ export class QuestionsComponent implements OnInit {
   }
     this.http.post('http://localhost:3000/api/update',data, { observe: 'response' })
     .subscribe(response => {
-      let status = response.status;
-      console.log(response);
     }, error => {
-      //console.log("Error is there " + error);
-      //alert(`Error is there ${error.error.message}`);
+
       this.uiser.showSnackbar(error.message, 'ok',5000);
     });
-//console.log(this.points+ "one= " +this.one+ " two= "+this.two+" three= "+this.three+" four= "+this.four+" five= "+this.five)
-
   }
 }
