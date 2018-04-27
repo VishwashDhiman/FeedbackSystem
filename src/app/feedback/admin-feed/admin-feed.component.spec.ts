@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FacultyComponent } from './faculty.component';
+import { AdminFeedComponent } from './admin-feed.component';
 
-describe('FacultyComponent', () => {
-  let component: FacultyComponent;
-  let fixture: ComponentFixture<FacultyComponent>;
+describe('AdminFeedComponent', () => {
+  let component: AdminFeedComponent;
+  let fixture: ComponentFixture<AdminFeedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FacultyComponent ]
+      declarations: [ AdminFeedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FacultyComponent);
+    fixture = TestBed.createComponent(AdminFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

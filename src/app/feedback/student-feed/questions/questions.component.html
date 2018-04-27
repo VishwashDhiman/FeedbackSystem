@@ -1,0 +1,288 @@
+<h2>{{teacherName}}</h2>
+<mat-vertical-stepper linear='true' #stepper="matVerticalStepper">
+  <mat-step label="Question1" [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="firstCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperNext (click)="submit()">Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+
+  <mat-step label="Question2" [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="secondCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+
+  <mat-step label="Question3" [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="thirdCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+
+  <mat-step label="Question4" [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="fourthCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+
+  <mat-step label="Question5" [stepControl]="fifthFormGroup">
+    <form [formGroup]="fifthFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="fifthCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+  <mat-step label="Question6" [stepControl]="sixthFormGroup">
+    <form [formGroup]="sixthFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="sixthCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+
+  <mat-step label="Question7" [stepControl]="seventhFormGroup">
+    <form [formGroup]="seventhFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="seventhCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+
+  <mat-step label="Question8" [stepControl]="eighthFormGroup">
+    <form [formGroup]="eighthFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="eighthCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+  <mat-step label="Question9" [stepControl]="ninthFormGroup">
+    <form [formGroup]="ninthFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="ninthCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+
+  <mat-step label="Question10" [stepControl]="tenthFormGroup">
+    <form [formGroup]="tenthFormGroup" fxFlex>
+      <mat-card>
+        <mat-radio-group fxLayoutGap="20px" formControlName="tenthCtrl">
+          <mat-radio-button value="1">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="2">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="3">
+            <mat-icon>sentiment_neutral</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="4">
+            <mat-icon>sentiment_satisfied</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button value="5">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-card>
+    </form>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <h2>You are now done.</h2>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="submit()">Submit</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+  </mat-step>
+</mat-vertical-stepper>

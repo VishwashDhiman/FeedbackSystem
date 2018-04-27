@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() sideNavTog = new EventEmitter<void>();
   constructor() { }
+  user = true;
 
   ngOnInit() {
   }

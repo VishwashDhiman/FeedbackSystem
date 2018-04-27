@@ -8,6 +8,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class SidenavComponent implements OnInit {
   @Output() listclose = new EventEmitter<void>();
   constructor() { }
+  
+  user = true;
 
   ngOnInit() {
   }

@@ -12,13 +12,17 @@ import {
   MatInputModule,
   MatSelectModule,
   MatTabsModule,
+  MatGridListModule,
   MatCardModule,
-  MatCheckboxModule,
-  MatTableModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
   MatStepperModule,
-  MatRadioModule
+  MatSnackBarModule,
+  MatExpansionModule,
+  MatRadioModule,
+  MatDividerModule,
+  MatTableModule
 } from '@angular/material';
-import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -34,12 +38,17 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatInputModule,
     MatSelectModule,
     MatTabsModule,
+    MatGridListModule,
     MatCardModule,
-    MatCheckboxModule,
-    MatTableModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
     MatStepperModule,
-    MatRadioModule
-  ],
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatTableModule
+    ],
   exports: [
     MatSidenavModule,
     MatButtonModule,
@@ -51,14 +60,18 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatExpansionModule,
     MatTabsModule,
+    MatGridListModule,
     MatCardModule,
-    MatCheckboxModule,
-    MatTableModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
     MatStepperModule,
-    MatRadioModule
-    ],
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatTableModule
+  ],
   declarations: []
 })
 export class MaterialModule { }

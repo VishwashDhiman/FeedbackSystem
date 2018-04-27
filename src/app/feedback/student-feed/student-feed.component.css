@@ -1,0 +1,7 @@
+section{
+    padding: 20px;
+    align-content: center;
+}
+mat-expansion-panel{
+    width: 70%;
+}

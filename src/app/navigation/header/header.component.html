@@ -9,9 +9,11 @@
   <div class="logo"><a routerLink="/">Feedback System</a></div>
   
   <div class="links" fxFlex fxLayoutAlign="end" fxHide.xs>
-      <a routerLink="/login" >Login</a>
-      <a routerLink="/feedback">Feedback</a>
-      <a class="logout" (click)="onLogout()" *ngIf="isAuth">Logout</a>
+      <a routerLink="/login" *ngIf="!user" >Login</a>
+      <a routerLink="/student" *ngIf="user" >SFeed</a>
+      <a routerLink="/teacher" *ngIf="user">TFeed</a>
+      <a routerLink="/admin" *ngIf="user" >AFeed</a>
+      <a class="logout" (click)="onLogout()" *ngIf="user">Logout</a>
   </div>
 
 </mat-toolbar>

@@ -3,19 +3,25 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';//Imported to use animations
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './auth/auth.service';
+import { UIService } from './shared/ui.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
-import { FeedbackComponent } from './feedback/feedback.component';
+
 import { AppRoutingModule } from './/app-routing.module';
 import { MaterialModule } from './material/material.module';
-import { QwestionsComponent } from './feedback/qwestions/qwestions.component';
-import{HttpClientModule} from '@angular/common/http';
-import { FacultyComponent } from './feedback/faculty/faculty.component';
-import { AdminComponent } from './feedback/admin/admin.component';
-import { AdminService } from './auth/admin.service';
+import { StudentFeedComponent } from './feedback/student-feed/student-feed.component';
+import { TeacherFeedComponent } from './feedback/teacher-feed/teacher-feed.component';
+import { AdminFeedComponent } from './feedback/admin-feed/admin-feed.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+
+//Required Modules
+import { HttpClientModule } from '@angular/common/http';
+import { QuestionsComponent } from './feedback/student-feed/questions/questions.component';
+
 
 @NgModule({
   declarations: [
@@ -23,10 +29,11 @@ import { AdminService } from './auth/admin.service';
     LoginComponent,
     HeaderComponent,
     SidenavComponent,
-    FeedbackComponent,
-    QwestionsComponent,
-    FacultyComponent,
-    AdminComponent
+    StudentFeedComponent,
+    TeacherFeedComponent,
+    AdminFeedComponent,
+    WelcomeComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +42,11 @@ import { AdminService } from './auth/admin.service';
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [AdminService],
-  bootstrap: [ AppComponent ]
+  providers: [AuthService, UIService],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }

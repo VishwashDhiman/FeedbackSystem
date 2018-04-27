@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card fxFlex>
   <mat-card-content>
     <mat-tab-group class="tab-group">
       <mat-tab label="Add Students">
@@ -83,12 +83,21 @@
             </mat-form-field>
 
             <mat-form-field class="full-width">
-              <mat-select placeholder="Skills" #select="ngModel" ngModel name="selected" required>
+              <mat-select placeholder="Subject" #subject="ngModel" ngModel name="subject" required>
                 <mat-option>--</mat-option>
-                <mat-option *ngFor="let skill of courseList" [value]="skill">{{skill}}</mat-option>
+                <mat-option *ngFor="let subject of courseList" [value]="subject">{{subject}}</mat-option>
               </mat-select>
               <mat-error *ngIf="select.hasError('required')">Please choose any skill</mat-error>
             </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Class" #class="ngModel" ngModel name="class" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let class of availableClass" [value]="class">{{class}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="select.hasError('required')">Please choose any class</mat-error>
+            </mat-form-field>
+
             <button type="submit" mat-raised-button color="primary" [disabled]="facultyForm.invalid">Submit</button>
           </form>
         </div>
@@ -167,9 +176,14 @@
             </ng-container>
 
             <!-- Symbol Column -->
-            <ng-container matColumnDef="skill">
+             <ng-container matColumnDef="subject">
+              <mat-header-cell *matHeaderCellDef> Subject </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.subject}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="class">
               <mat-header-cell *matHeaderCellDef> Class </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.skill}} </mat-cell>
+              <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="displayedColumnsForTeacher"></mat-header-row>
@@ -181,4 +195,4 @@
       </mat-tab>
     </mat-tab-group>
   </mat-card-content>
-</mat-card>
+</mat-card >

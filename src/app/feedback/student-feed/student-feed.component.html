@@ -1,0 +1,20 @@
+<div><section fxLayoutAlign="center center" fxLayout="column"><h2>Review your Faculty</h2> A Chance to review and rate your faculty fairly and anonymously</section></div>
+<div class="teacherList" fxLayoutAlign="center center">
+  <mat-accordion fxFlex fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="5px">
+    
+    <!-- Teachers to be displayed using ngFor directive -->
+    <mat-expansion-panel *ngFor="let teacher of teachers" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{teacher.subject}}
+        </mat-panel-title>
+        <!-- <mat-panel-description>
+          
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+      {{teacher.name}}
+      <button mat-button (click)="startReview(teacher.name)">Review</button>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

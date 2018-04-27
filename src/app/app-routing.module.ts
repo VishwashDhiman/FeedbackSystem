@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes,RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-import { AdminComponent } from './feedback/admin/admin.component';
-import  { FacultyComponent } from './feedback/faculty/faculty.component';
-import { QwestionsComponent } from './feedback/qwestions/qwestions.component';
+import { AdminFeedComponent } from './feedback/admin-feed/admin-feed.component';
+import { StudentFeedComponent } from './feedback/student-feed/student-feed.component';
+import { TeacherFeedComponent } from './feedback/teacher-feed/teacher-feed.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { QuestionsComponent } from './feedback/student-feed/questions/questions.component';
 
 const routes : Routes = [
-  {path: '',redirectTo:'login',pathMatch:'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'student', component: FeedbackComponent },
-  { path: 'faculty', component:  FacultyComponent}, 
-  { path: 'admin', component: AdminComponent },
-  { path: 'qwestions', component: QwestionsComponent}
+  { path: 'student', component: StudentFeedComponent },
+  { path: 'admin', component: AdminFeedComponent },
+  { path: 'teacher', component: TeacherFeedComponent },
+  { path: 'questions', component: QuestionsComponent },
+  { path: '', component: WelcomeComponent }
 ];
 
 @NgModule({
