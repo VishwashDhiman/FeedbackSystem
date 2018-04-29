@@ -11,7 +11,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule} from './/app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { StudentFeedComponent } from './feedback/student-feed/student-feed.component';
 import { TeacherFeedComponent } from './feedback/teacher-feed/teacher-feed.component';
@@ -45,7 +45,7 @@ import { QuestionsComponent } from './feedback/student-feed/questions/questions.
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, UIService],
+  providers: [AuthService,UIService],
   bootstrap: [AppComponent]
 })
 
