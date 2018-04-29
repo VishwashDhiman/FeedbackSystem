@@ -3,14 +3,17 @@ import { FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material';
 import { UIService } from '../../shared/ui.service';
-
+import { AuthService } from './../../auth/auth.service';
+import { Router } from'@angular/router';
+ 
 @Component({
   selector: 'app-admin-feed',
   templateUrl: './admin-feed.component.html',
   styleUrls: ['./admin-feed.component.css']
 })
 export class AdminFeedComponent implements OnInit {
-  constructor(private http: HttpClient, private uiser: UIService) {
+  constructor(private http: HttpClient, private uiser: UIService, private autser:AuthService,
+  private router:Router) {
 
   }
 
@@ -41,6 +44,12 @@ export class AdminFeedComponent implements OnInit {
       .subscribe(response => {
         let status = response.status;
         console.log(response);
+        if(response.body == null)
+        {
+            this.uiser.showSnackbar("Student already exists","ok",5000);
+        }
+        else
+        this.uiser.showSnackbar("Student added successfully",'ok',3000);
       }, error => {
         //console.log("Error is there " + error);
         //alert(`Error is there ${error.error.message}`);
@@ -89,6 +98,12 @@ export class AdminFeedComponent implements OnInit {
       .subscribe(response => {
         let status = response.status;
         console.log(response);
+        if(response.body == null)
+        {
+            this.uiser.showSnackbar("Teacher already assigned","ok",5000);
+        }
+        else
+        this.uiser.showSnackbar("Teacher added successfully",'ok',3000);
       }, error => {
         console.log("Error is there " + error);
         alert(`Error is there ${error.error.message}`);
@@ -111,6 +126,11 @@ export class AdminFeedComponent implements OnInit {
       });
   }
   ngOnInit() {
+
+     if(this.autser.adminLogin == false)
+     {
+       this.router.navigate(['\home']);
+     }
   }
 
 

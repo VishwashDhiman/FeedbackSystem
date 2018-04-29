@@ -13,13 +13,15 @@ export class AuthService {
   private class;
   private teacher;
   private name;
+  public adminLogin = false;
   public checkAdmin(id: any, pass: any) {
     if (id == this.admin.id && pass == this.admin.password) {
       this.authChange.next("Admin");
-      return true;
+      this.adminLogin = true;
+      return this.adminLogin;
     }
     else {
-      return false;
+      return this.adminLogin;
     }
 
   }
