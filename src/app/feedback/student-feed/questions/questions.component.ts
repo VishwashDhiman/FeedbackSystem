@@ -3,7 +3,6 @@ import { AuthService } from '../../../auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { UIService } from '../../../shared/ui.service';
-import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-questions',
@@ -34,7 +33,7 @@ export class QuestionsComponent implements OnInit {
   five = 0;
 
   constructor(private autser: AuthService, private formBuilder: FormBuilder,
-  private http:HttpClient,private uiser: UIService,private router:Router) { }
+  private http:HttpClient,private uiser: UIService) { }
 
   ngOnInit() {
     this.teacherName = this.autser.getTeacher();
@@ -135,7 +134,5 @@ export class QuestionsComponent implements OnInit {
 
       this.uiser.showSnackbar(error.message, 'ok',5000);
     });
-
-    this.router.navigate['/student'];
   }
 }
