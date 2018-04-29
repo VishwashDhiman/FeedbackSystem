@@ -9,11 +9,11 @@
   <div class="logo"><a routerLink="/">Feedback System</a></div>
   
   <div class="links" fxFlex fxLayoutAlign="end" fxHide.xs>
-      <a routerLink="/login" *ngIf="!user" >Login</a>
-      <a routerLink="/student" *ngIf="user" >SFeed</a>
-      <a routerLink="/teacher" *ngIf="user">TFeed</a>
-      <a routerLink="/admin" *ngIf="user" >AFeed</a>
-      <a class="logout" (click)="onLogout()" *ngIf="user">Logout</a>
+    <a routerLink="/login" *ngIf="user == 'login'" >Login</a>
+    <a routerLink="/student" *ngIf=" user == 'Student' " >SFeed</a>
+    <a routerLink="/teacher" *ngIf="user == 'Teacher'">TFeed</a>
+    <a routerLink="/admin" *ngIf="user == 'Admin'" >AFeed</a>
+    <a class="logout" (click)="onLogout()" *ngIf="user == 'Admin'||user == 'Teacher'||user == 'Student'">Logout</a>
   </div>
 
 </mat-toolbar>

@@ -23,7 +23,7 @@ export class TeacherFeedComponent implements OnInit {
   private reviewForTeacher =[];
 
   ngOnInit() {
-    this.name = this.auser.getName();
+    this.name = this.auser.getName(); 
     console.log(this.name);
     this.http.get('http://localhost:3000/api/searchTeachersName/?name=' + this.name)
     .subscribe(response => {

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-
+import { Subject } from 'rxjs';
 @Injectable()
 export class AuthService {
+  authChange = new Subject<String>();//Sends data onChange
 
   constructor() { }
   admin =
@@ -14,6 +15,7 @@ export class AuthService {
   private name;
   public checkAdmin(id: any, pass: any) {
     if (id == this.admin.id && pass == this.admin.password) {
+      this.authChange.next("Admin");
       return true;
     }
     else {
@@ -23,6 +25,7 @@ export class AuthService {
   }
 
   public setClass(Class: any) {
+    this.authChange.next("Student");
     this.class = Class;
   }
 
@@ -42,11 +45,16 @@ export class AuthService {
 
   public setName(n)
   {
+    this.authChange.next("Teacher");
     this.name = n;
   }
 
   public getName()
   {
     return this.name;
+  }
+  public logout(a)
+  {
+    this.authChange.next('login');
   }
 }

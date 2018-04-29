@@ -79,7 +79,7 @@ export class AdminFeedComponent implements OnInit {
     let record = {
       id: facultyData.value.id,
       name: facultyData.value.username,
-      password: facultyData.value.password,
+      password: facultyData.value.password, 
       subject: facultyData.value.subject,
       class: facultyData.value.class
 
