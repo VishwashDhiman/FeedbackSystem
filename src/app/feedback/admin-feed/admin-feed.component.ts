@@ -127,7 +127,7 @@ export class AdminFeedComponent implements OnInit {
   }
   ngOnInit() {
 
-     if(this.autser.adminLogin == false)
+     if(this.autser.adming() == false)
      {
        this.router.navigate(['\home']);
      }

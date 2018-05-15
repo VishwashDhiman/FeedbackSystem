@@ -33,7 +33,7 @@ export class QuestionsComponent implements OnInit {
   five = 0;
 
   constructor(private autser: AuthService, private formBuilder: FormBuilder,
-  private http:HttpClient,private uiser: UIService) { }
+    private http: HttpClient, private uiser: UIService) { }
 
   ngOnInit() {
     this.teacherName = this.autser.getTeacher();
@@ -72,67 +72,61 @@ export class QuestionsComponent implements OnInit {
       eleventhCtrl: ['', Validators.required]
     });
 
-    this.http.get('http://localhost:3000/api/getRatting/?name='+this.teacherName)
-    .subscribe(response => {
-      console.log(response,this.teacherName);
-      this.ratting = response;
+    this.http.get('http://localhost:3000/api/getRatting/?name=' + this.teacherName)
+      .subscribe(response => {
+        console.log(response, this.teacherName);
+        this.ratting = response;
 
-      this.one = this.ratting[0].rating.oneStar;
-      this.two = this.ratting[0].rating.twoStar;
-      this.three = this.ratting[0].rating.threeStar;
-      this.four = this.ratting[0].rating.fourStar;
-      this.five = this.ratting[0].rating.fiveStar;
-      this.review = this.ratting[0].reviews;
-    }, error => {
-      this.uiser.showSnackbar(error.message, 'ok', 5000);
-    });
+        this.one = this.ratting[0].rating.oneStar;
+        this.two = this.ratting[0].rating.twoStar;
+        this.three = this.ratting[0].rating.threeStar;
+        this.four = this.ratting[0].rating.fourStar;
+        this.five = this.ratting[0].rating.fiveStar;
+        this.review = this.ratting[0].reviews;
+      }, error => {
+        this.uiser.showSnackbar(error.message, 'ok', 5000);
+      });
   }
-  public submit()
-  {    
-    this.points = this.firstFormGroup.value.firstCtrl+this.secondFormGroup.value.secondCtrl+
-    this.thirdFormGroup.value.thirdCtrl+this.fourthFormGroup.value.fourthCtrl+this.fifthFormGroup.value.fifthCtrl+
-    this.sixthFormGroup.value.sixthCtrl+this.seventhFormGroup.value.seventhCtrl+this.eighthFormGroup.value.eighthCtrl+
-    this.ninthFormGroup.value.ninthCtrl+this.tenthFormGroup.value.tenthCtrl;
-    for(let i = 0; i < this.points.length; i++)
-    {
-      if(this.points[i] == '1')
-      {
+  public submit() {
+    this.points = this.firstFormGroup.value.firstCtrl + this.secondFormGroup.value.secondCtrl +
+      this.thirdFormGroup.value.thirdCtrl + this.fourthFormGroup.value.fourthCtrl + this.fifthFormGroup.value.fifthCtrl +
+      this.sixthFormGroup.value.sixthCtrl + this.seventhFormGroup.value.seventhCtrl + this.eighthFormGroup.value.eighthCtrl +
+      this.ninthFormGroup.value.ninthCtrl + this.tenthFormGroup.value.tenthCtrl;
+    for (let i = 0; i < this.points.length; i++) {
+      if (this.points[i] == '1') {
         this.one++;
       }
-      else if(this.points[i] == '2')
-      {
+      else if (this.points[i] == '2') {
         this.two++;
       }
-      else if(this.points[i] == '3')
-      {
+      else if (this.points[i] == '3') {
         this.three++;
       }
-      else if(this.points[i] == '4')
-      {
+      else if (this.points[i] == '4') {
         this.four++;
       }
-      else if(this.points[i] == '5')
-      {
+      else if (this.points[i] == '5') {
         this.five++;
       }
     }
-    this.review += this.eleventhFormGroup.value.eleventhCtrl+"$";
+    this.review += this.eleventhFormGroup.value.eleventhCtrl + "$";
 
-    let data = {'rating' : {
-      'oneStar' : this.one,
-      'twoStar' : this.two,
-      'threeStar' : this.three,
-      'fourStar' : this.four,
-      'fiveStar' : this.five
-    },
-    'name' : this.teacherName,
-    'review' : this.review
-  }
-    this.http.post('http://localhost:3000/api/update',data, { observe: 'response' })
-    .subscribe(response => {
-    }, error => {
+    let data = {
+      'rating': {
+        'oneStar': this.one,
+        'twoStar': this.two,
+        'threeStar': this.three,
+        'fourStar': this.four,
+        'fiveStar': this.five
+      },
+      'name': this.teacherName,
+      'review': this.review
+    }
+    this.http.post('http://localhost:3000/api/update', data, { observe: 'response' })
+      .subscribe(response => {
+      }, error => {
 
-      this.uiser.showSnackbar(error.message, 'ok',5000);
-    });
+        this.uiser.showSnackbar(error.message, 'ok', 5000);
+      });
   }
 }

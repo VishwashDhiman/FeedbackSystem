@@ -1,0 +1,9 @@
+{
+    "name": "Feedback System",
+    "short_name": "PWFeedback",
+    "description": "A feedback system solution for our college",  
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#673ab7"
+  }

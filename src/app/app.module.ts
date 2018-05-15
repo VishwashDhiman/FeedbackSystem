@@ -22,6 +22,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionsComponent } from './feedback/student-feed/questions/questions.component';
 
+//added service worker
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +47,8 @@ import { QuestionsComponent } from './feedback/student-feed/questions/questions.
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : []
   ],
   providers: [AuthService, UIService],
   bootstrap: [AppComponent]

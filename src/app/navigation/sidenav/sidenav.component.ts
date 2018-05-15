@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,14 +9,23 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
   @Output() listclose = new EventEmitter<void>();
-  constructor() { }
-  
-  user = true;
+
+  private user: String = null;
+  private userSubs: Subscription;
+
+  constructor(private authser: AuthService) { }
 
   ngOnInit() {
+    this.userSubs = this.authser.authChange.subscribe(user => {
+      this.user = user
+    });
   }
-
-  listClose(){
+  listClose() {
+    this.listclose.emit();
+  }
+  
+  onLogout(){
+    this.authser.logout();
     this.listclose.emit();
   }
 

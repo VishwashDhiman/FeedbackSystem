@@ -1,6 +1,7 @@
-mat-card{
-    width: 300px;
+.welcome{
+    text-align: center;
 }
+
 section{
-    padding: 10;
+    width: 50%;
 }

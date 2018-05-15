@@ -1,24 +1,24 @@
 <mat-list>
 
-  <a mat-list-item routerLink="/login" (click)="listClose()" *ngIf="!user">
-      <mat-icon>input</mat-icon>
-      <span class="nav-cap">Login</span>
-  </a>
-  <a mat-list-item routerLink="/student" (click)="listClose()" *ngIf="user" >
-      <mat-icon>feedback</mat-icon>
-      <span class="nav-cap">SFeed</span>
-  </a>
-  <a mat-list-item routerLink="/teacher" (click)="listClose()" *ngIf="user" >
-    <mat-icon>feedback</mat-icon>
-    <span class="nav-cap">TFeed</span>
-</a>
-<a mat-list-item routerLink="/admin" (click)="listClose()" *ngIf="user" >
-    <mat-icon>feedback</mat-icon>
-    <span class="nav-cap">AFeed</span>
-</a>
-  <a mat-list-item (click)="listClose()" (click)="listClose()" *ngIf="user" >
-    <mat-icon>eject</mat-icon>
-    <span class="nav-cap">Logout</span>
-</a>
+    <a mat-list-item routerLink="/login" (click)="listClose()" *ngIf="!user">
+        <mat-icon>input</mat-icon>
+        <span class="nav-cap">Login</span>
+    </a>
+    <a mat-list-item routerLink="/student" (click)="listClose()" *ngIf=" user == 'Student' ">
+        <mat-icon>feedback</mat-icon>
+        <span class="nav-cap">SFeed</span>
+    </a>
+    <a mat-list-item routerLink="/teacher" (click)="listClose()" *ngIf=" user == 'Teacher' ">
+        <mat-icon>feedback</mat-icon>
+        <span class="nav-cap">TFeed</span>
+    </a>
+    <a mat-list-item routerLink="/admin" (click)="listClose()" *ngIf=" user == 'Admin' ">
+        <mat-icon>feedback</mat-icon>
+        <span class="nav-cap">AFeed</span>
+    </a>
+    <a mat-list-item (click)="onLogout()" *ngIf="user == 'Admin'||user == 'Teacher'||user == 'Student'">
+        <mat-icon>eject</mat-icon>
+        <span class="nav-cap">Logout</span>
+    </a>
 
-</mat-list> 
+</mat-list>
