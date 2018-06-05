@@ -104,7 +104,7 @@ router.post('/update', function (req, res, next) {
   console.log(req.body.review);
   let name = req.body.name;
 
-    teacher.update({'name' : name}, {$set: {'rating': req.body.rating, 'reviews' : req.body.review}}).then(function (studentdata) {
+    teacher.update({'name' : name}, {$set: {'rating': req.body.rating, 'reviews' : req.body.reviews}}).then(function (studentdata) {
       console.log(studentdata);
       res.send(studentdata);
     }).catch(next);
@@ -112,7 +112,8 @@ router.post('/update', function (req, res, next) {
 
   router.get('/searchTeachersName', function (req, res) {
     let name=req.query.name; 
-    teacher.find({name}).then(function (data) { 
+    teacher.find({'name' : name}).then(function (data) { 
+      console.log("Here data is " + data);
       res.send(JSON.stringify(data));
     });
   });

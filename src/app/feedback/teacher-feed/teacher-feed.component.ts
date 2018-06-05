@@ -37,6 +37,7 @@ export class TeacherFeedComponent implements OnInit {
         this.Reviews = this.teachersData[0].reviews;
 
         //  for(let i of this.Reviews)
+        if(this.Reviews != null)
         this.reviewForTeacher = this.Reviews.split('$');
         console.log(this.oneStar + " " + this.twoStar + " " + this.threeStar + " " + this.fourStar + " " + this.fiveStar + " " + this.Reviews);
       }, error => {

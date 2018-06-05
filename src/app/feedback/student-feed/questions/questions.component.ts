@@ -82,7 +82,7 @@ export class QuestionsComponent implements OnInit {
         this.three = this.ratting[0].rating.threeStar;
         this.four = this.ratting[0].rating.fourStar;
         this.five = this.ratting[0].rating.fiveStar;
-        this.review = this.ratting[0].reviews;
+         this.review = this.ratting[0].reviews;
       }, error => {
         this.uiser.showSnackbar(error.message, 'ok', 5000);
       });
@@ -109,7 +109,7 @@ export class QuestionsComponent implements OnInit {
         this.five++;
       }
     }
-    this.review += this.eleventhFormGroup.value.eleventhCtrl + "$";
+     this.review += this.eleventhFormGroup.value.eleventhCtrl + "$";
 
     let data = {
       'rating': {
@@ -120,10 +120,11 @@ export class QuestionsComponent implements OnInit {
         'fiveStar': this.five
       },
       'name': this.teacherName,
-      'review': this.review
+      'reviews': this.review
     }
     this.http.post('http://localhost:3000/api/update', data, { observe: 'response' })
       .subscribe(response => {
+        console.log(response.body);
       }, error => {
 
         this.uiser.showSnackbar(error.message, 'ok', 5000);

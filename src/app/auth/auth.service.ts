@@ -61,7 +61,7 @@ export class AuthService {
   {
     this.http.post('http://localhost:3000/api/faculty', data, { observe: 'response' })
     .subscribe(response => {
-      if (response == null) {
+      if (response.body == null) {
         this.uiser.showSnackbar('Enter valid credentials', 'ok', 4000);
       }
       else {

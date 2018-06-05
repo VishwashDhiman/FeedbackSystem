@@ -90,14 +90,14 @@ export class AdminFeedComponent implements OnInit {
       name: facultyData.value.username,
       password: facultyData.value.password, 
       subject: facultyData.value.subject,
-      class: facultyData.value.class
-
-    }
+      class: facultyData.value.class,
+      reviews: '$'
+    };
     console.log(record);
     this.http.post('http://localhost:3000/api/addfaculty', record, { observe: 'response' })
       .subscribe(response => {
         let status = response.status;
-        console.log(response);
+        console.log("After adding " + response.body);
         if(response.body == null)
         {
             this.uiser.showSnackbar("Teacher already assigned","ok",5000);
