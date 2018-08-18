@@ -1,6 +1,9 @@
 # FeedbackSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5. This project can be used to give feedback to the faculty by the students in the any educational institues like colledge, school etc. In this project, the admin have the authority to add the student and faculty. After that the student or faculty can login to there accounts.
+Students can add the reveiew for that particular faculty member.
+On the other hand faculty member can see there rattings and reviews by the user
+
 ## Live Application
 * [Feedback System](https://sleepy-river-60659.herokuapp.com)
 
